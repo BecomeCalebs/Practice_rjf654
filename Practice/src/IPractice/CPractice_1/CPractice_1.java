@@ -27,8 +27,8 @@ public class CPractice_1 implements IPractice{
     }
     // 필드(=멤버변수) 값 변경 
     @Override
-    public void update(){
-
+    public int update(){
+        return 1;
     } 
     // 화면에 인스턴스 정보 출력
     @Override
