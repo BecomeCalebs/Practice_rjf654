@@ -6,32 +6,27 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import DesignPattern.CPracticeMgr;
+
 public class App {
+    //생성시점 및 위치: 프로그램 시작 직후 메모리의 메서드 영역에 생성
     public static void main(String[] args) throws Exception {
+        //CPracticeMgr practiceMgr = new CPracticeMgr(); //생성자의 한정자가 private 이기에 외부에서 인스턴스를 만들 수 없음.
+        CPracticeMgr practiceMgr = CPracticeMgr.GetPracticeMgr();
 
-        //확인
-        //1. CPractice_1 인스턴스 생성 부분
-        // * 인스턴스: 자료형의 데이터가 메모리의 생성된 것.
-        //2. 형변환: CPractice 변수에 CPractice_1의 인스턴스를 담을 수 있다.
-        //암묵적 형변환
-        IPractice practice = new CPractice_1(); //자료형이 CPractice(=부모클래스)이기 때문에 CPractice가 갖고 있는 필드 or 메서드만 사용 가능하다.
+        //생성되는 시점이 다르기 때문에 호출이 안 되는 겁니다.
+        //GetTest();
 
-        //CPractice_1 인스턴스는 메모리 상에서 사라지고 //가비지 컬렉션
-        //, CPractice_2 인스턴스가 생성되어 practice 변수에 담긴다.
-        practice = new CPractice_2();
-        //부모 = new 자식();
-
-        List<String>  titles = new ArrayList<>();
-        titles.add("CPractice를 선택해 주세요.\n");
-        titles.add("1. CPractice_1\n");
-        titles.add("2. CPractice_2\n");
-        titles.add("99. EXIT\n");
-        titles.add("Choose: ");
+        Titles.add("CPractice를 선택해 주세요.\n");
+        Titles.add("1. CPractice_1\n");
+        Titles.add("2. CPractice_2\n");
+        Titles.add("99. EXIT\n");
+        Titles.add("Choose: ");
         
         Scanner in = new Scanner(System.in); // Scanner 객체 생성
 
         do {
-            for(String title : titles) {
+            for(String title : Titles) {
                 System.out.print(title);
             }
 
@@ -40,20 +35,21 @@ public class App {
                 break;
             }
 
-            switch(selectedPractice) {
-                case 1:
-                    practice = new CPractice_1();
-                    break;
-                case 2:
-                    practice = new CPractice_2();
-                    break;
-                default:
-                    continue;
-            }
+            practiceMgr.SetPractice(selectedPractice);
+
             //override 되었으므로 자식클래스에서 정의한 메서드가 호출됨.
-            practice.render();
-        } while(practice.update() == 1);//결과가 참이면 loop
+            practiceMgr.GetPractice().render();
+        } while(practiceMgr.GetPractice().update() == 1);//결과가 참이면 loop
 
     }
+
+    private static List<String>  Titles = new ArrayList<>();
+
+    //생성시점 및 위치:  메모리의 스택 영역에 생성
+    //메서드 영역보다 나중에 생성되는 건 확실함.
+    public void GetTest(){
+
+    }
+
 }
 
