@@ -28,6 +28,7 @@ public class CPracticeMgr {
         return PracticeMgr;
     }
 
+    
     //외부에서 인스턴스를 함부로 바꾸지 못 하도록 private 처리한 후 Getter, Setter 함수를 사용하는 겁니다.
     private IPractice Practice = new CPractice_1(); 
 
@@ -40,6 +41,9 @@ public class CPracticeMgr {
                 break;
             case 2:
                 Practice = new CPractice_2();
+                break;
+            default:
+                Practice = new CPractice_1();
                 break;
         }
     }

@@ -3,6 +3,7 @@ package IPractice.CPractice_1;
 import java.util.ArrayList;
 import java.util.List;
 
+import Headers.CIO;
 import IPractice.IPractice;
 
 public class CPractice_1 implements IPractice{
@@ -22,24 +23,36 @@ public class CPractice_1 implements IPractice{
     @Override
     public void initialize(){
         titles = new ArrayList<>();
+        titles.add("연습 선택");
         titles.add("1. 초기화란?");
         titles.add("2. 변수의 종류");
+        titles.add("99. EXIT");
+        titles.add("Choose: ");
     }
     // 필드(=멤버변수) 값 변경 
     @Override
-    public int update(){
-        return 1;
+    public int update() {
+        switch(CIO.inputNum())
+        {
+            case 1:
+                practice_1();
+                break;
+            case 2:
+                practice_2("매개변수에 넣어주는 문자열");
+                break;
+            case 99: 
+                return 99;
+            default:
+                return 0;
+        }
+        return 0;
     } 
     // 화면에 인스턴스 정보 출력
     @Override
     public void render(){
-        for(int i = 0; i < titles.size(); ++i)
-        {
+        for(int i = 0; i < titles.size(); ++i) {
             System.out.println(titles.get(i));
         }
-        
-        practice_1();
-        practice_2("매개변수에 넣어주는 문자열");
     }
     // 필드의 인스턴스 해제
     @Override
