@@ -20,18 +20,16 @@ public class CPractice_2 implements IPractice{
     @Override
     public void initialize() {
         titles = new ArrayList<>();
-        titles.add("연습 선택");
-        titles.add("1. ");
-        titles.add("2. ");
-        titles.add("99. EXIT");
-        titles.add("Choose: ");
-
+        titles.add("\n연습 선택");
+        titles.add("\n1. DinamicArray");
+        titles.add("\n2. ");
+        titles.add("\n99. EXIT");
+        titles.add("\nChoose: ");
     }
 
     @Override
     public int update() {
-        switch(CIO.inputNum())
-        {
+        switch(CIO.inputNum()) {
             case 1:
                 practice_1();
                 break;
@@ -47,7 +45,8 @@ public class CPractice_2 implements IPractice{
 
     @Override
     public void render() {
-            System.out.println("CPractice_2 입니다.");
+        for(String title : titles)
+            System.out.println(title);
     }
 
     @Override
@@ -66,6 +65,8 @@ public class CPractice_2 implements IPractice{
             System.out.println(lists.Get(i).toString());
         }
     }
+
+    
     
     
 }

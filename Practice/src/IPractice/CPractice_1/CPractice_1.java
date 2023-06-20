@@ -6,7 +6,7 @@ import java.util.List;
 import Headers.CIO;
 import IPractice.IPractice;
 
-public class CPractice_1 implements IPractice{
+public class CPractice_1 implements IPractice {
     //생성자
     //인스턴스가 생성되는 시점에 호출되는 메서드 
     public CPractice_1(){
@@ -23,11 +23,11 @@ public class CPractice_1 implements IPractice{
     @Override
     public void initialize(){
         titles = new ArrayList<>();
-        titles.add("연습 선택");
-        titles.add("1. 초기화란?");
-        titles.add("2. 변수의 종류");
-        titles.add("99. EXIT");
-        titles.add("Choose: ");
+        titles.add("\n연습 선택");
+        titles.add("\n1. 초기화란?");
+        titles.add("\n2. 변수의 종류");
+        titles.add("\n99. EXIT");
+        titles.add("\nChoose: ");
     }
     // 필드(=멤버변수) 값 변경 
     @Override
@@ -51,7 +51,7 @@ public class CPractice_1 implements IPractice{
     @Override
     public void render(){
         for(int i = 0; i < titles.size(); ++i) {
-            System.out.println(titles.get(i));
+            System.out.print(titles.get(i));
         }
     }
     // 필드의 인스턴스 해제
@@ -61,7 +61,7 @@ public class CPractice_1 implements IPractice{
     } 
 
 
-    private void practice_1(){
+    private void practice_1() {
         /*
          인스턴스 설명
          인스턴스란 메모리에 만들어진 데이터다.

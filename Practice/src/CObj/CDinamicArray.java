@@ -1,7 +1,5 @@
 package CObj;
 
-import java.util.List;
-
 public class CDinamicArray<T> extends CObj{
     public CDinamicArray() {
         
@@ -15,26 +13,30 @@ public class CDinamicArray<T> extends CObj{
 
     public <T> void Add(T _element) {
         if (m_cur_capacity == m_cur_size) {
-        //Add 하면 배열 컨테이너의 원소가 모자랄 시
-        //기존의 배열 컨테이너의 두 배에 해당하는 배열 컨테이너를 만든 후
+            //Add 하면 배열 컨테이너의 원소가 모자랄 시
+            //기존의 배열 컨테이너의 두 배에 해당하는 배열 컨테이너를 만든 후
             m_cur_capacity *= 2;
 
-        //기존의 배열의 원소를 새로운 배열에 복사한다.
+            //기존의 배열의 원소를 새로운 배열에 복사한다.
             Object[] temp_arr = new Object[m_cur_capacity];
-            for (int i = 0; i < m_cur_size; ++i)
+            for (int i = 0; i < m_cur_size; ++i){
                 temp_arr[i] = m_uniq_container[i];
+            }
 
-        //기존의 배열 인스턴스를 삭제한다.
-        //m_uniq_container에 새로운 배열의 인스턴스를 담는다.
-                m_uniq_container = temp_arr;
+            //기존의 배열 인스턴스를 삭제한다.
+            //m_uniq_container에 새로운 배열의 인스턴스를 담는다.
+            m_uniq_container = temp_arr;
         }
         m_uniq_container[m_cur_size++] = _element;
     }
+
     public <T> T Get(int _index) {
         return  (T) m_uniq_container[_index];
     }
-    public int Size() { return m_cur_size; }
 
+    public int Size() {
+        return m_cur_size; 
+    }
 
     /*
      * ArrayList의 장점
@@ -48,6 +50,4 @@ public class CDinamicArray<T> extends CObj{
      * EX) 256개의 원소를 담을 ArrayList가 필요하다면
      * ArrayList의 크기를 256으로 설정한다.
      */
-
-
 }
