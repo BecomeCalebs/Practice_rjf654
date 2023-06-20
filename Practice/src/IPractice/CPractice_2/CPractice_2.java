@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import CObj.CDinamicArray;
+import Headers.CIO;
 import IPractice.IPractice;
 
 public class CPractice_2 implements IPractice{
@@ -29,7 +30,19 @@ public class CPractice_2 implements IPractice{
 
     @Override
     public int update() {
-        return 1;
+        switch(CIO.inputNum())
+        {
+            case 1:
+                practice_1();
+                break;
+            case 2:
+                break;
+            case 99: 
+                return 99;
+            default:
+                return 0;
+        }
+        return 0;
     }
 
     @Override
@@ -42,9 +55,16 @@ public class CPractice_2 implements IPractice{
 
     }
 
-    private void practice_2() {
+    private void practice_1() {
         CDinamicArray<Integer> lists = new CDinamicArray<>();
-        ArrayList<Integer> lii = new ArrayList<>(256); //256 크기의 컨테이너가 생성된다.
+        //ArrayList<Integer> lii = new ArrayList<>(256); //256 크기의 컨테이너가 생성된다.
+        lists.Add(1);
+        lists.Add(2);
+        lists.Add(3);
+
+        for(int i = 0; i < lists.Size(); ++i){
+            System.out.println(lists.Get(i).toString());
+        }
     }
     
     

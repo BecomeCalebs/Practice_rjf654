@@ -43,7 +43,7 @@ public class App {
 
             //override 되었으므로 자식클래스에서 정의한 메서드가 호출됨.
             practiceMgr.GetPractice().render();
-        } while(practiceMgr.GetPractice().update() == 1);//결과가 참이면 loop
+        } while(practiceMgr.GetPractice().update() != 99);//결과가 참이면 loop
 
     }
 
