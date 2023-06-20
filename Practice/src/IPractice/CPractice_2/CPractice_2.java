@@ -55,18 +55,19 @@ public class CPractice_2 implements IPractice{
     }
 
     private void practice_1() {
-        CDinamicArray<Integer> lists = new CDinamicArray<>();
-        //ArrayList<Integer> lii = new ArrayList<>(256); //256 크기의 컨테이너가 생성된다.
+        CDinamicArray<Integer> lists = new CDinamicArray<>(256);
+        ArrayList<Integer> lii = new ArrayList<>(256); //256 크기의 컨테이너가 생성된다.
+        
         lists.Add(1);
         lists.Add(2);
         lists.Add(3);
 
-        for(int i = 0; i < lists.Size(); ++i){
+        for(int i = 0; i < lists.Size(); ++i) {
             System.out.println(lists.Get(i).toString());
         }
     }
 
-    
+
     
     
 }
