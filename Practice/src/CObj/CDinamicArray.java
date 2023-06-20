@@ -1,6 +1,6 @@
 package CObj;
 
-public class CDinamicArray<T> extends CObj{
+public class CDinamicArray<T> extends CObj {
     public CDinamicArray() {
         
     }
@@ -9,7 +9,7 @@ public class CDinamicArray<T> extends CObj{
 	
 	private	int m_cur_capacity = DEFAULT_CAP;
 	private	int m_cur_size = 0;
-	private Object[] m_uniq_container = new Object[255]; // 강제 형변환을 이용하여 생성;
+	private Object[] m_uniq_container = new Object[m_cur_capacity]; // 강제 형변환을 이용하여 생성;
 
     public <T> void Add(T _element) {
         if (m_cur_capacity == m_cur_size) {
