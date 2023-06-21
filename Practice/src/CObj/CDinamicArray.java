@@ -45,14 +45,15 @@ public class CDinamicArray<T> extends CObj {
     }
 
     public <T> T Get(int _index) {
-        try{
-            if(m_cur_size < _index) { // 인덱스 범위 벗어난 경우 예외 던지기
-            throw new IndexOutOfBoundsException("Invalid index: " + _index);
+        try {
+            if (m_cur_size < _index) { // 인덱스 범위 벗어난 경우 예외 던지기
+                throw new IndexOutOfBoundsException("Invalid index: " + _index);
+            }
+            return (T) m_container[_index]; // m_container[_index] <-- object를 반환
+        } catch (IndexOutOfBoundsException e) { // 던져진 예외를 어떻게 처리 어떻게 할 것인지 작성하기
+            System.out.println("Invalid index: " + e.getMessage());
+            return null;
         }
-        return  (T) m_container[_index]; //m_container[_index] <-- object를 반환
-    } catch (IndexOutOfBoundsException e) { // 던져진 예외를 어떻게 처리 어떻게 할 것인지 작성하기
-        System.out.println("Invalid index: " + e.getMessage());
-        return null;
     }
 
     public int Size() {
