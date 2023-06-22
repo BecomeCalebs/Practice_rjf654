@@ -52,8 +52,8 @@ public class CDinamicArray<T> extends CObj {
             return (T) m_container[_index]; // m_container[_index] <-- object를 반환
         } catch (IndexOutOfBoundsException e) { // 던져진 예외를 어떻게 처리 어떻게 할 것인지 작성하기
             System.out.println("Invalid index: " + e.getMessage());
-            return null;
         }
+        return null;
     }
 
     public int Size() {
