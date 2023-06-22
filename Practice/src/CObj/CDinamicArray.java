@@ -1,5 +1,6 @@
 package CObj;
 
+//Vector
 public class CDinamicArray<T> extends CObj {
     // 인스턴스 생성 순서 2. 생성자 호출
     public CDinamicArray() {
