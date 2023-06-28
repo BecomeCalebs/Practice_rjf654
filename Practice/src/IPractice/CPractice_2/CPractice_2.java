@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import CObj.CDinamicArray;
-import CObj.CList;
+import CObj.CForwardList;
 import Headers.CIO;
 import IPractice.IPractice;
 
@@ -73,15 +73,21 @@ public class CPractice_2 implements IPractice{
     }
     //CForwardList 예제
     private void practice_2(){
-        CList<Integer> lists = new CList<>();
+        CForwardList<Integer> lists = new CForwardList<>();
         //1. push_front
         lists.push_front(1);
         lists.push_front(2);
         lists.push_front(3);
         lists.push_front(4);
+        lists.push_back(5);
+        lists.push_back(6);
+        lists.push_back(7);
+        lists.push_back(8);
+        lists.push_back(9);
+        
 
         //2. pop_front
-        for(int i = 0; i < 4; ++i){
+        for(int i = 0; i < lists.Size();) {
             System.out.println( lists.pop_front().toString());
         }
 
